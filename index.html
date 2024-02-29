@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen Sharing Example</title>
+  <style>
+    video {
+      width: 100%;
+      max-width: 800px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Screen Sharing Example</h1>
+  
+  <!-- Add your UI elements for starting and stopping screen sharing -->
+
+  <video id="screenShareVideo" autoplay playsinline></video>
+
+  <script>
+    navigator.mediaDevices.getDisplayMedia({ video: true })
+      .then(stream => {
+        const videoElement = document.getElementById('screenShareVideo');
+        videoElement.srcObject = stream;
+      })
+      .catch(error => console.error('Error accessing screen:', error));
+  </script>
+</body>
+</html>
